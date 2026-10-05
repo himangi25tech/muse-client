@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
 import { createInterface } from 'node:readline';
-import { MuseAccount, MuseClient } from '../src/index.js';
+import { MuseAccount, MuseClient, loadPersona, personaAsk } from '../src/index.js';
 import type { ChatEvent } from '../src/index.js';
 import { defaultCredentialsDirectory, loadCredentials, saveCredentials, unpair } from '../src/credentials.js';
 
@@ -14,6 +14,8 @@ const HELP = `Muse CLI example
   bun run cli check                       Connect and open a chat subscription
   bun run cli chat                        Interactive text chat
   bun run cli send "Hello"                Send a message (prints acknowledgement)
+  bun run cli send --persona "lunch?"     Send a draft request with ~/muse notes
+  bun run cli persona                     Print ~/muse notes (food, reply style, soul)
   bun run cli watch                       Watch chat events
 
 Options:
@@ -55,12 +57,12 @@ async function main(): Promise<void> {
   const { values, positionals } = parseArgs({ allowPositionals: true, options: {
     credentials: { type: 'string' }, vm: { type: 'string' }, session: { type: 'string' },
     'sdk-token-file': { type: 'string' }, probe: { type: 'boolean' },
-    json: { type: 'boolean' }, help: { type: 'boolean', short: 'h' },
+    json: { type: 'boolean' }, persona: { type: 'boolean' }, help: { type: 'boolean', short: 'h' },
   } });
   if (values.help) { console.log(HELP); return; }
   const sessionId = values.session;
   const command = positionals[0] ?? 'chat';
-  if (!['pair', 'unpair', 'vms', 'check', 'chat', 'send', 'watch'].includes(command)) throw new Error(`Unknown command: ${command}`);
+  if (!['pair', 'unpair', 'vms', 'check', 'chat', 'send', 'watch', 'persona'].includes(command)) throw new Error(`Unknown command: ${command}`);
   if (command === 'send' && !positionals.slice(1).join(' ').trim()) throw new Error('Usage: cli send "message"');
   const directory = values.credentials ?? defaultCredentialsDirectory();
   if (command === 'unpair') {
@@ -72,6 +74,13 @@ async function main(): Promise<void> {
   if (command === 'pair') {
     const { runPairCommand } = await import('./pair-command.js');
     await runPairCommand(directory, values['sdk-token-file'], values.probe);
+    return;
+  }
+  if (command === 'persona') {
+    const notes = await loadPersona();
+    console.log(notes.rules);
+    if (notes.missing.length) console.error(`Missing, using placeholders: ${notes.missing.join(', ')}`);
+    for (const [name, text] of Object.entries(notes.files)) console.log(`\n## ${name}\n${text}`);
     return;
   }
   const credentials = await loadCredentials(directory);
@@ -93,7 +102,9 @@ async function main(): Promise<void> {
   try {
     console.error(`Connected to ${client.vm.name || client.vm.id}.`);
     if (command === 'send') {
-      const result = await client.sendMessage(positionals.slice(1).join(' '), { sessionId });
+      const ask = positionals.slice(1).join(' ');
+      const message = values.persona ? personaAsk(await loadPersona(), ask) : ask;
+      const result = await client.sendMessage(message, { sessionId });
       console.log(`Accepted: ${result.messageId}`);
       return;
     }

@@ -59,6 +59,8 @@ bun run cli chat                 # Interactive chat; /quit or Ctrl+C to exit
 bun run cli vms                  # List Muse VMs
 bun run cli check                # Check the connection without sending a message
 bun run cli send "Hello Muse"    # Send a message and print its acknowledgement
+bun run cli persona              # Print ~/muse notes
+bun run cli send --persona "what should I eat"   # Attach those notes, then ask
 bun run cli watch --json         # Stream chat events
 bun run cli unpair               # Remove local pairing credentials
 ```
@@ -114,7 +116,7 @@ try {
 
 | Import | Exports |
 | --- | --- |
-| `muse-client` | `MuseClient`, `MuseAccount` |
+| `muse-client` | `MuseClient`, `MuseAccount`, `loadPersona`, `personaAsk` |
 | `muse-client/credentials` | `loadCredentials`, `saveCredentials`, `unpair` |
 | `muse-client/pairing` | `pairMacOS`, `buildPairingHelper`, `validateSDKToken` |
 
@@ -123,6 +125,9 @@ try {
 
 Audio, attachments, history listing, and independent account login are not supported.
 The SDK does not expose local shell commands or device controls to Muse.
+`loadPersona` reads `~/muse/food.md`, `reply-style.md`, and `soul.md`. `--persona`
+puts those notes in the chat message. It does not place orders or send chats.
+Paste `soul.md` into the Muse app under Identity, then Soul, so the phone uses the same rules.
 
 ## Development
 
