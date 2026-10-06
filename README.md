@@ -125,10 +125,55 @@ try {
 
 Audio, attachments, history listing, and independent account login are not supported.
 The SDK does not expose local shell commands or device controls to Muse.
-`loadPersona` reads `~/muse/food.md`, `reply-style.md`, and `soul.md`. `--persona`
-puts those notes in the chat message. It does not place orders or send chats.
-Paste `soul.md` into the Muse app under Identity, then Soul, so the phone uses the same rules.
-Diagrams and the file contract are in [docs/persona.md](docs/persona.md).
+
+## Persona notes
+
+`--persona` attaches `~/muse/food.md`, `reply-style.md`, and `soul.md` to one chat message. Muse drafts. You still send the text or place the order. This does not add a gadget command channel.
+
+![How a persona request moves](docs/images/persona-flow.png)
+
+```mermaid
+flowchart TD
+  files["~/muse/food.md, reply-style.md, soul.md"] --> load["loadPersona()"]
+  load --> notes["PersonaNotes"]
+  ask["your question"] --> wrap["personaAsk()"]
+  notes --> wrap
+  wrap --> send["MuseClient.sendMessage"]
+  send --> draft["Muse draft"]
+  draft --> you["You send or order"]
+```
+
+`personaAsk` builds one string, in this order: the draft rule, then `## food.md`, `## reply-style.md`, `## soul.md`, then your question last. No other file is read.
+
+![What --persona sends](docs/images/persona-message.png)
+
+![What this change does and does not do](docs/images/persona-boundary.png)
+
+| Does | Does not |
+| --- | --- |
+| Read the three named files | Place an order |
+| Fill a missing file with a placeholder | Send a chat for you |
+| Cap each file at 24,576 characters | Read clipboard, history, or other paths |
+| Attach the notes to one `send` | Speak on a gadget, or use a laptop VPN for a board |
+
+Paste `soul.md` into the Muse app under Identity, then Soul, if the phone should follow the same rules. Append a section. Do not replace that file.
+
+`loadPersona(root?)` defaults to `~/muse`. A missing file is named in `missing` and filled with a placeholder. A long file is named in `truncated` and cut at 24,576 characters.
+
+```sh
+mkdir -p ~/muse
+bun run cli persona
+bun run cli send --persona "what should I eat"
+```
+
+```ts
+import { loadPersona, personaAsk, MuseClient } from 'muse-client';
+
+const notes = await loadPersona();
+await client.sendMessage(personaAsk(notes, 'what should I eat'));
+```
+
+`persona` only prints the notes. `send` without `--persona` is unchanged.
 
 ## Development
 

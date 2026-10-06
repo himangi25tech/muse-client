@@ -1,5 +1,7 @@
 # Persona notes
 
+Moved into the [README](../README.md#persona-notes). The diagrams stay in `docs/images/`.
+
 This change lets this Mac attach your own notes to one Muse chat message. Muse drafts. You still send the text or place the order.
 
 It does not add a gadget command channel. `MuseClient` still only chats.
