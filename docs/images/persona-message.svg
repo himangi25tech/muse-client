@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460">
+  <rect width="960" height="460" fill="#f4f1ea"/>
+  <text x="40" y="42" font-family="ui-sans-serif, sans-serif" font-size="22" font-weight="700" fill="#1c1917">What --persona sends</text>
+  <text x="40" y="68" font-family="ui-sans-serif, sans-serif" font-size="14" fill="#57534e">One chat message. No extra Muse API. No path argument is accepted.</text>
+
+  <rect x="40" y="96" width="560" height="324" rx="14" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="64" y="128" font-family="ui-monospace, monospace" font-size="13" fill="#9f3a2f">Draft only. Never send, order, or spend money.</text>
+  <text x="64" y="156" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#1e4d7b">## food.md</text>
+  <text x="64" y="178" font-family="ui-monospace, monospace" font-size="13" fill="#1c1917">veg thali under 250</text>
+  <text x="64" y="210" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#1e4d7b">## reply-style.md</text>
+  <text x="64" y="232" font-family="ui-monospace, monospace" font-size="13" fill="#1c1917">friends: one or two short lines</text>
+  <text x="64" y="264" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#1e4d7b">## soul.md</text>
+  <text x="64" y="286" font-family="ui-monospace, monospace" font-size="13" fill="#1c1917">lead with the line I can use</text>
+  <line x1="64" y1="312" x2="540" y2="312" stroke="#e7e5e4"/>
+  <text x="64" y="344" font-family="ui-monospace, monospace" font-size="14" font-weight="700" fill="#1c1917">what should I eat</text>
+  <text x="64" y="392" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#57534e">Your question is always last.</text>
+
+  <rect x="640" y="96" width="280" height="88" rx="12" fill="#e7f3ec" stroke="#1f6b4a"/>
+  <text x="660" y="128" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="700" fill="#1f6b4a">Included</text>
+  <text x="660" y="152" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#1c1917">3 named files, capped at 24,576</text>
+  <text x="660" y="172" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#1c1917">characters each</text>
+
+  <rect x="640" y="204" width="280" height="108" rx="12" fill="#f8ebe8" stroke="#9f3a2f"/>
+  <text x="660" y="236" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="700" fill="#9f3a2f">Not included</text>
+  <text x="660" y="260" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#1c1917">other files in ~/muse</text>
+  <text x="660" y="280" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#1c1917">chat history, clipboard</text>
+  <text x="660" y="300" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#1c1917">SDK token</text>
+
+  <rect x="640" y="332" width="280" height="88" rx="12" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="660" y="364" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="700" fill="#1c1917">If a file is missing</text>
+  <text x="660" y="388" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#57534e">A placeholder is sent, and</text>
+  <text x="660" y="408" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#57534e">the name is listed as missing.</text>
+</svg>

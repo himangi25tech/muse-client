@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+  <rect width="960" height="520" fill="#f4f1ea"/>
+  <text x="40" y="42" font-family="ui-sans-serif, sans-serif" font-size="22" font-weight="700" fill="#1c1917">How a persona request moves</text>
+  <text x="40" y="68" font-family="ui-sans-serif, sans-serif" font-size="14" fill="#57534e">This Mac reads three notes, attaches them to one chat message, and stops.</text>
+
+  <rect x="40" y="100" width="200" height="72" rx="12" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="140" y="130" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="650" fill="#1c1917">food.md</text>
+  <text x="140" y="152" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#57534e">diet, budget, spots</text>
+
+  <rect x="260" y="100" width="200" height="72" rx="12" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="360" y="130" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="650" fill="#1c1917">reply-style.md</text>
+  <text x="360" y="152" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#57534e">friends vs work</text>
+
+  <rect x="480" y="100" width="200" height="72" rx="12" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="580" y="130" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="650" fill="#1c1917">soul.md</text>
+  <text x="580" y="152" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#57534e">how to talk</text>
+
+  <text x="740" y="132" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#57534e">~/muse/</text>
+  <text x="740" y="152" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#57534e">on this Mac</text>
+
+  <path d="M140 172 V204 H360 V172" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <path d="M360 172 V204" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <path d="M580 172 V204 H360" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <path d="M360 204 V228" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <polygon points="360,236 354,226 366,226" fill="#a8a29e"/>
+
+  <rect x="250" y="236" width="220" height="56" rx="12" fill="#e7f3ec" stroke="#1f6b4a"/>
+  <text x="360" y="258" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="700" fill="#1f6b4a">loadPersona()</text>
+  <text x="360" y="276" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#1c1917">missing file = placeholder</text>
+
+  <path d="M360 292 V316" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <polygon points="360,324 354,314 366,314" fill="#a8a29e"/>
+
+  <rect x="210" y="324" width="300" height="56" rx="12" fill="#e7f0f8" stroke="#1e4d7b"/>
+  <text x="360" y="346" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="700" fill="#1e4d7b">personaAsk(notes, question)</text>
+  <text x="360" y="364" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="12" fill="#1c1917">rules + three files + your ask</text>
+
+  <path d="M360 380 V404" fill="none" stroke="#a8a29e" stroke-width="1.5"/>
+  <polygon points="360,412 354,402 366,402" fill="#a8a29e"/>
+
+  <rect x="230" y="412" width="260" height="48" rx="12" fill="#fffdf8" stroke="#d6d3d1"/>
+  <text x="360" y="440" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="14" font-weight="650" fill="#1c1917">Muse returns a draft</text>
+
+  <rect x="720" y="412" width="200" height="48" rx="12" fill="#f8ebe8" stroke="#9f3a2f"/>
+  <text x="820" y="440" text-anchor="middle" font-family="ui-sans-serif, sans-serif" font-size="13" font-weight="700" fill="#9f3a2f">You send or order</text>
+  <path d="M490 436 H712" fill="none" stroke="#9f3a2f" stroke-width="1.5"/>
+  <polygon points="712,436 702,430 702,442" fill="#9f3a2f"/>
+</svg>

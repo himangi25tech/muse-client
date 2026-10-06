@@ -128,6 +128,7 @@ The SDK does not expose local shell commands or device controls to Muse.
 `loadPersona` reads `~/muse/food.md`, `reply-style.md`, and `soul.md`. `--persona`
 puts those notes in the chat message. It does not place orders or send chats.
 Paste `soul.md` into the Muse app under Identity, then Soul, so the phone uses the same rules.
+Diagrams and the file contract are in [docs/persona.md](docs/persona.md).
 
 ## Development
 
